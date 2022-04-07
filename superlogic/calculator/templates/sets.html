@@ -1,0 +1,28 @@
+{%extends 'layout.html'%}
+{% load static %}        
+{% block content %}
+
+<section>
+    <form action="" method="get">
+        <input value="{{ set1 }}" class="set1" type="text" name="text">
+        <input value="{{ set2 }}" class="set2" type="text" name="text2"> 
+        <select name="select">
+            <option value="1">Value 1</option>
+            <option value="2" >Value 2</option>
+            <option value="3">Value 3</option>
+        </select>
+
+        <button class="sendto" type="submit">Enviar</button>
+        <button class="reset" type="reset">Resetear</button>
+
+    </form>
+</section>
+
+
+<h1>{{ set1 }}</h1>
+<h1>{{ set2 }}</h1>
+<h1>{{ option }}</h1>
+
+
+
+{% endblock content %}
