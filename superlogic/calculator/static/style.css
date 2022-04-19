@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@700&family=Work+Sans:wght@500&display=swap');
+
+:root{
+    --index:#CFC0F3;
+    --cal1:#DA4167;
+    --cal2:#083D77;
+}
+
+*{
+    font-family: 'Work Sans', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+.index-data{
+    height: 710px;
+    background-color: var(--index);
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1,1fr);
+    
+}
+
+.main-img{
+    margin-top: 2%;
+}
+
+.main-data{
+    margin-top: 15%;
+}
+
+.main-data p{
+    font-family: 'Amaranth', sans-serif;
+    font-size: 80px;
+}
+
+.main-data button{
+    font-family: 'Amaranth', sans-serif;
+    border:none;
+    border-radius: 10px;
+    font-size: 40px;
+    width: 350px;
+    margin-left:10%;
+    margin-top: 5%;
+}
+
+.main-data button:hover{
+    background-color: var(--cal1);
+    transition-delay: .1s;
+    cursor: pointer;
+
+}

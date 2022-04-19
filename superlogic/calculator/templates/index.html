@@ -2,5 +2,19 @@
 {% load static %}        
 {% block content %}
 
+<section class="index-data">
+    <section class="main-img">
+        <img src="{% static 'img/main.png' %}" alt="" width="500" height="700">
+    
+    </section>
+    
+    <section class="main-data">
+        <p>The site<br>where logic is<br>stipulated</p>
+        <a href="{% url 'sets' %}"><button type="button" >Try now</button></a>
+    
+    </section>
+</section>
+
 
 {% endblock content %}
+
