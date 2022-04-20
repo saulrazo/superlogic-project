@@ -16,60 +16,14 @@ def sets(request): #PÁGINA DE CONJUNTOS
        option = int((list(request.GET.values()))[3])
 
        if random_option == 1:
+           context = menu(set1,set2,option)
+           return render(request, 'sets.html', context)
 
-          if option == 1:
-              oper_list = intersection(set1, set2)
-              if oper_list:
-                   response = intersection(set1, set2)
-              else:
-                   response = "No hay interseccion!"
-
-              context = {'set1':set1,'set2':set2,'option':option,'result':response}
-              return render(request, 'sets.html', context)
-
-          elif option == 2:
-              oper_list = union(set1, set2)
-              response = union(set1, set2)
-
-    
-              context = {'set1':set1,'set2':set2,'option':option,'result':response}
-              return render(request, 'sets.html', context)
-
-         
-
-          else:
-              context = {'set1':set1,'set2':set2,'option':option}
-              return render(request, 'sets.html', context)
 
        elif random_option == 2:
             set1, set2 = auto_Generate()
-
-            if option == 1:
-                oper_list = intersection(set1, set2)
-                if oper_list:
-                     response = intersection(set1, set2)
-                else:
-                     response = "No hay interseccion!"
-
-                context = {'set1':set1,'set2':set2,'option':option,'result':response}
-                return render(request, 'sets.html', context)
-
-            elif option == 2:
-                oper_list = union(set1, set2)
-                response = union(set1, set2)
-
-    
-                context = {'set1':set1,'set2':set2,'option':option,'result':response}
-                return render(request, 'sets.html', context)
-
-         
-
-            else:
-                context = {'set1':set1,'set2':set2,'option':option}
-                return render(request, 'sets.html', context)
-
-
-
+            context = menu(set1,set2,option)
+            return render(request, 'sets.html', context)
 
 
     else:
