@@ -1,0 +1,122 @@
+:root{
+    --primary:   #861657;
+    --secondary: #fff;
+    --terciary:  #AA4465;
+    --mainb:     #FFA69E;
+    --active:    #93E1D8;
+    --c-active:  #576490;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--primary);
+}
+
+
+.calculadora{
+    position: relative;
+    display: grid;
+}
+
+.calculadora .value{
+    grid-column: span 4;
+    height: 100px;
+    text-align: right;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 25px;
+    
+}
+
+.calculadora span{
+    font-size: 40px;
+    display: grid;
+    width: 120px;
+    height: 120px;
+    color: var(--secondary);
+    background: var(--terciary);
+    place-items: center;
+    border: 1px solid rgba(224, 216, 216, 0.1);
+    cursor: pointer;
+    
+
+}
+
+.calculadora span.clear{
+    background: var(--mainb);
+}
+
+.calculadora .equal{
+    background: var(--active);
+    color: var(--c-active);
+    font-size: 50px;
+    border: 1px solid rgba(224, 216, 216, 0.1);
+}
+.calculadora .equal:active{
+    color: var(--secondary);
+    background: var(--terciary);
+}
+
+.calculadora span:active{
+    background: var(--active);
+    color: var(--c-active);
+}
+
+.calculadora span.clear{
+    grid-column: span 3;
+    width: 360px;
+}
+
+.calculadora .equal{
+    grid-column: span 4;
+    width: 480px;
+}
+
+
+.gen{
+    margin-top: 10px;
+    background: var(--mainb);
+    color: var(--secondary);
+    border:none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 30px;
+    margin-left: 40px;
+    
+}
+
+.container{
+    padding: 2em;
+    text-align: center;
+    
+}
+
+.item{
+    display: inline-block;
+    font-size: 50px;
+    padding-right: 10px;
+    
+
+}
+
+.messages{
+    padding: 30px;
+    text-align: center;
+ 
+}
+
+
+
+
