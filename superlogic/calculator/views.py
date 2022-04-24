@@ -7,8 +7,6 @@ def index(request): #PÁGINA INICIAL
     return render(request, 'index.html')
 
 
-
-
 def true(request): #CALCULADORA DE TABLAS DE VERDAD
     """
     Se alamacen con método GET en data la información

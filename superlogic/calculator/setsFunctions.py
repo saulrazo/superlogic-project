@@ -3,111 +3,112 @@ from functools import reduce
 
 def menu(set1,set2,option):
     if option == 1: # INTERSECCIÓN DE CONJUNTOS
-        operation = f"Intersección de {set(set1)} & {set(set2)}"
+        operation = f"Intersección de {set(set1)}[{len(set1)}] & {set(set2)}[{len(set1)}]"
 
         oper_list = intersection(set1, set2)
         if oper_list:
-            response = intersection(set1, set2)
+            response = f"{set(intersection(set1, set2))}[{len(intersection(set1, set2))}]"
         else:
-            response = "No hay interseccion!"
+            response = "No hay intersección"
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context 
 
     elif option == 2: # UNIÓN DE CONJUTNOS
-        operation = f"Unión de {set(set1)} & {set(set2)}"
-        response = union(set1, set2)
+        operation = f"Unión de {set(set1)}[{len(set1)}] & {set(set2)}[{len(set2)}]"
+        response = f"{set(union(set1, set2))}[{len(union(set1, set2))}]"
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
     elif option == 3: # DIFERENCIA A-B
-        operation = f"Diferencia de {set(set1)} & {set(set2)}"
-        response = difference(set1, set2)
+        operation = f"Diferencia de {set(set1)}[{len(set1)}] & {set(set2)}[{len(set2)}]"
+        response = f"{set(difference(set1, set2))}[{len(difference(set1, set2))}]" 
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
-    elif option == 4: #DIFERENCIA B-A
-        operation = f"Diferencia de {set(set2)} & {set(set1)}"
-        response = difference(set2, set1)
+    elif option == 4: #DIFERENCIA B-A 
+        operation = f"Diferencia de {set(set2)}[{len(set2)}] & {set(set1)}[{len(set1)}]"
+        response = f"{set(difference(set2, set1))}[{len(difference(set2, set1))}]" 
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
     elif option == 5: #DIFERENCIA SIMÉTRICA
-        operation = f"Diferencia simétrica de {set(set1)} & {set(set2)}"
+        operation = f"Diferencia simétrica de {set(set1)}[{len(set1)}] & {set(set2)}[{len(set2)}]"
         list_diff_a = difference(set1, set2)
         list_diff_b = difference(set2, set1)
         
-        response = union(list_diff_a, list_diff_b)
+        response = f"{set(union(list_diff_a, list_diff_b))}[{len(union(list_diff_a, list_diff_b))}]" 
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
-    elif option == 6: #COMPLEMENTO DE A
-        operation = f"Complemento de {set(set1)}"
-        response = complement(set1)
+    elif option == 6: #COMPLEMENTO DE A 
+        operation = f"Complemento de {set(set1)}[{len(set1)}]"
+        response = f"{set(complement(set1))}[{len(complement(set1))}]" 
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
     elif option == 7: # COMPLEMENTO DE B 
-        operation = f"Complemento de {set(set2)}"
-        oper_list = union(set1, set2)
-        response = union(set1, set2)
+        operation = f"Complemento de {set(set2)}[{len(set2)}]"
+        response = f"{set(complement(set2))}[{len(complement(set2))}]" 
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
-    elif option == 8: #PRODUCTO CARTESIANO AXB
-        operation = f"Producto cartesiano {set(set1)} X {set(set2)}"
-        response = cartesian(set1, set2)
+    elif option == 8: #PRODUCTO CARTESIANO AXB 
+        operation = f"Producto cartesiano {set(set1)}[{len(set1)}] X {set(set2)}[{len(set2)}]"
+        response = f"{set(cartesian(set1, set2))}[{len(cartesian(set1, set2))}]" 
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
     elif option == 9: #PRODUCTO CARTESIANO BXA
-        operation = f"Producto cartesiano {set(set2)} X {set(set1)}"
-        response = cartesian(set2, set1)
+        operation = f"Producto cartesiano {set(set2)}[{len(set2)}] X {set(set1)}[{len(set1)}]"
+        response = f"{set(cartesian(set2, set1))}[{len(cartesian(set2, set1))}]" 
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
     elif option == 10: #PRODUCTO CARTESIANO AXA
-        operation = f"Producto cartesiano {set(set1)} X {set(set2)}"
-        response = cartesian(set1, set1)
+        operation = f"Producto cartesiano {set(set1)}[{len(set1)}] X {set(set1)}[{len(set1)}]"
+        response = f"{set(cartesian(set1, set1))}[{len(cartesian(set1, set1))}]" 
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
     elif option == 11: #PRODUCTO CARTESIANO BXB
-        operation = f"Producto cartesiano {set(set2)} X {set(set2)}"
-        response = cartesian(set2, set2)
+        operation = f"Producto cartesiano {set(set2)}[{len(set2)}] X {set(set2)}[{len(set2)}]"
+        response = f"{set(cartesian(set2, set2))}[{len(cartesian(set2, set2))}]"
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
-    elif option == 12: #CONJUNTO POTENCIA DE A
-        operation = f"Conjunto potencia de {set(set1)}"
+    elif option == 12: #CONJUNTO POTENCIA DE A 
+        operation = f"Conjunto potencia de {set(set1)}[{len(set1)}]"
 
-        response = power(set1)
-        response[0] = "{∅}"
+        result = power(set1)
+        result[0] = "{∅}"
+        response = f"{result}[{len(result)}]"
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
     elif option == 13: #CONJUNTO POTENCIA DE B
-        operation = f"Conjunto potencia de {set(set2)}"
+        operation = f"Conjunto potencia de {set(set2)}[{len(set2)}]"
 
-        response = power(set2)
-        response[0] = "{∅}"
+        result = power(set2)
+        result[0] = "{∅}"
+        response = f"{result}[{len(result)}]"
 
         context = {'operation':operation,'result':set(response)}
         return context
 
     elif option == 14: #CONTENCIÓN DE A EN B
-        operation = f"Contención de {set(set1)} en {set(set2)}"
+        operation = f"Contención de {set(set1)}[{len(set1)}] en {set(set2)}[{len(set2)}]"
 
         if contention(set1, set2):
             response = "A ⊆ B es verdadero"
@@ -118,12 +119,12 @@ def menu(set1,set2,option):
         return context
 
     elif option == 15: #CONTENCIÓN DE B EN A
-        operation = f"Contención de {set(set2)} en {set(set1)}"
+        operation = f"Contención de {set(set2)}[{len(set2)}] en {set(set1)}[{len(set1)}]"
 
         if contention(set2, set1):
             response = "B ⊆ A es verdadero"
         else:
-            response = "B no esta contenido en A"
+            response = "B no está contenido en A"
 
         context = {'operation':operation,'result':response}
         return context
