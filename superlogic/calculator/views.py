@@ -9,7 +9,7 @@ def index(request): #PÁGINA INICIAL
 
 def true(request): #CALCULADORA DE TABLAS DE VERDAD
     """
-    Se alamacen con método GET en data la información
+    Se almacena con método GET en data la información
     ingresada en la calculadora para posteriormente darle
     formato excluyendo caracteres propios de QUERYS de Django
     """
@@ -70,24 +70,24 @@ def true(request): #CALCULADORA DE TABLAS DE VERDAD
 def sets(request): #PÁGINA DE CONJUNTOS
 
     if request.GET:
-       set1 = list(set(((list(request.GET.values()))[0]).split(sep=',')))
-       set2 = list(set(((list(request.GET.values()))[1]).split(sep=',')))
-       random_option = int((list(request.GET.values()))[2])
-       option = int((list(request.GET.values()))[3])
+       set1 = list(set(((list(request.GET.values()))[0]).split(sep=','))) #Se recibe en una lista los elementos del conjunto 1
+       set2 = list(set(((list(request.GET.values()))[1]).split(sep=','))) #Se recibe en una lista los elementos del conjunto 2
+       random_option = int((list(request.GET.values()))[2]) #Se recibe si se ejecuta "INGRESADO" o "RANDOM"
+       option = int((list(request.GET.values()))[3]) #Se recibe la operación a ejecutarse
 
-       if random_option == 1:
-           context = menu(set1,set2,option)
+       if random_option == 1: #INGRESADO
+           context = menu(set1,set2,option) #Función "menu" en setsFunctions.py
            return render(request, 'sets.html', context)
 
 
-       elif random_option == 2:
-            set1, set2 = auto_Generate()
+       elif random_option == 2: #RANDOM
+            set1, set2 = auto_Generate() #Función de creación de conjuntos Random
             context = menu(set1,set2,option)
             return render(request, 'sets.html', context)
 
 
     else:
-       return render(request, 'sets.html')
+       return render(request, 'sets.html') #Cuando se presenta un request.GET vacío
 
 
 

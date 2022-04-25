@@ -6,7 +6,7 @@
     <section class="sets-data">
         <section class="data-input">
             <h2 class="main-instruction">Ingrese sus elementos separados por comas</h2> <br>
-            <form action="" method="get">
+            <form action="" method="get"> <!--Se utiliza un método GET, pues no se refieren datos sensibles -->
                 <input  class="set1" type="text" name="text"><br><br>
                 <input  class="set2" type="text" name="text2"><br><br>
                 <select name="select1">
@@ -14,7 +14,7 @@
                     <option value="2" >RANDOM</option>
                 </select> 
         
-                <select name="select2">
+                <select name="select2"> <!--Menú de todas las posibilidades de operación -->
                     <option value="1">1. Interseccion A∩B </option>
                     <option value="2" >2. Union A∪B</option>
                     <option value="3">3. Diferencia A-B</option>
@@ -38,7 +38,7 @@
             </form>
         </section>
         
-        <section class="results">
+        <section class="results"> <!--Impresión de la operación hecha junto con el resultado de la operación-->
         
             <h1 class="main-operation">{{ operation }}</h1> <br>
             <h1 class="final-result">{{ result }}</h1>

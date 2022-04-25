@@ -1,6 +1,15 @@
 # superlogic-project
 
-******* REQUERIMIENTOS PARA EL CORRIMIENTO DEL PORGRAMA EN LOCALHOST *******
+NOTA:
+Se incluye la versión en Django(/superlogic) y la ejecutable en cmd (/for_console), es así que se brindan
+ambas posibilidades según sus adaptaciones al conocimiento que el equipo habría 
+adquirido para realización de "superlogic-project".
+
+
+
+
+
+****** REQUERIMIENTOS DE DJANGO PARA EL CORRIMIENTO DEL PORGRAMA EN LOCALHOS ******
 
 
 INSTALACIÓN DE PYTHON

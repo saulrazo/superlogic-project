@@ -1,8 +1,8 @@
 from cgi import print_form
 import random
-from functools import reduce
+from functools import reduce #Importación de funciones
 
-def menu(set1,set2,option):
+def menu(set1,set2,option): #función que recibe y ejecuta cada función necesaria
     if option == 1: # INTERSECCIÓN DE CONJUNTOS
         operation = f"Intersección de {set(set1)}[{len(set1)}] & {set(set2)}[{len(set1)}]"
 
@@ -12,7 +12,7 @@ def menu(set1,set2,option):
         else:
             response = "No hay intersección"
 
-        context = {'operation':operation,'result':response}
+        context = {'operation':operation,'result':response} # El "context" se renderiza con el .html en cada caso
         return context 
 
     elif option == 2: # UNIÓN DE CONJUTNOS
@@ -137,45 +137,45 @@ def menu(set1,set2,option):
 
 
 
-def auto_Generate():
-    size_A = random.randint(1, 20)
+def auto_Generate(): 
+    size_A = random.randint(1, 20) #Un máximo de 20 elementos
     size_B = random.randint(1, 20)
     conj_A = []
     conj_B = []
     for i in range(size_A):
         rep = 0
         while rep == 0:
-            rand = random.randint(1, 99)
+            rand = random.randint(1, 99)#Genera números del 1-99
             if rand not in conj_A:
-                conj_A.append(str(rand))
+                conj_A.append(str(rand))#Los ingresa en una lista
                 rep = 1
 
-    for i in range(size_B):
+    for i in range(size_B): #Mismo algoritmo del conj_A
         rep = 0
         while rep == 0:
-            rand = random.randint(1, 99)
+            rand = random.randint(1, 99) 
             if rand not in conj_B:
-                conj_B.append(str(rand))
+                conj_B.append(str(rand)) 
                 rep = 1
     return conj_A, conj_B
 
 
 
-def intersection(conj_A, conj_B):
+def intersection(conj_A, conj_B):  #INTERSECCIÓN DE CONJUNTOS
     card_A = int(len(conj_A))
     card_B = int(len(conj_B))
     list_inter = []
-    if card_A > card_B:
+    if card_A > card_B: #Determina qué cardinalidad es mayor
         for i in range(card_A):
             if conj_A[i] in conj_B:
-                list_inter.append(conj_A[i])
+                list_inter.append(conj_A[i]) #Ingresa valores en intersección en la lista a regresarse
 
         if not list_inter:
             return False
         else:
             return list_inter
 
-    if card_A < card_B:
+    if card_A < card_B: #Se repite el mismo algoritmo que "card_A > card_B"
         for i in range(card_B):
             if conj_B[i] in conj_A:
                 list_inter.append(conj_B[i])
@@ -185,7 +185,7 @@ def intersection(conj_A, conj_B):
         else:
             return list_inter
 
-    elif card_A == card_B:
+    elif card_A == card_B: #Si la cardinalidad es igual se compara con cualquier rango
         for i in range(card_A):
             if conj_A[i] in conj_B:
                 list_inter.append(conj_A[i])
@@ -196,30 +196,30 @@ def intersection(conj_A, conj_B):
             return list_inter
 
 
-def union(conj_A, conj_B):
+def union(conj_A, conj_B): #UNIÓN DE CONJUNTOS
     card_A = int(len(conj_A))
     card_B = int(len(conj_B))
     list_union = conj_A
 
     for i in range(card_B):
         if conj_B[i] not in list_union:
-            list_union.append(conj_B[i])
+            list_union.append(conj_B[i]) #Agrega los elementos del conjunto b a una copia del a
 
     return list_union
 
 
-def difference(conj_A, conj_B):
+def difference(conj_A, conj_B): #DIFERIENCIA DE CONJUNTOS
     card = int(len(conj_A))
     conj_diff = []
 
     for i in range(card):
         if conj_A[i] not in conj_B:
-            conj_diff.append(conj_A[i])
+            conj_diff.append(conj_A[i]) #Aquellos elementos que no se encunetren en el conjunto b se agregan a una lista
 
     return conj_diff
 
 
-def complement(conj):
+def complement(conj): #COMPLEMENTO DE CONJUNTOS
     card = int(len(conj))
     universe = []
     for element in range(100):
@@ -229,12 +229,12 @@ def complement(conj):
     comp = universe.copy()
 
     for i in range(card):
-        comp.remove(conj[i])
+        comp.remove(conj[i]) #Se crea una copia del universo como lista final y se remueven los elementos del conjunto ingresado.
 
     return comp
 
 
-def cartesian(conj_A, conj_B):
+def cartesian(conj_A, conj_B): #PRODUCTO CARTEASIANO DE CONJUNTOS
     card_A = int(len(conj_A))
     card_B = int(len(conj_B))
     conj_carte = []
@@ -243,17 +243,17 @@ def cartesian(conj_A, conj_B):
         for j in range(card_B):
             elem_temp = "(", str(conj_A[i]), ", ", str(conj_B[j]), ")"
             elem = ''.join(elem_temp)
-            conj_carte.append(elem)
+            conj_carte.append(elem) #Se genera cada tupla mediante dos ciclos for
 
     return conj_carte
 
 
-def contention(conj_A, conj_B):
+def contention(conj_A, conj_B): #DETERMINAR CONTENCIÓN DE UN CONJUNTO EN OTRO
     card = int(len(conj_A))
     gatito = 0
 
     for i in range(card):
-        if conj_A[i] not in conj_B:
+        if conj_A[i] not in conj_B: #Si existe algún elemento que no se encuentra en el otro conjunto termina.
             gatito = 1
             break
 
@@ -263,7 +263,7 @@ def contention(conj_A, conj_B):
         return False
 
 
-def power(conj):
+def power(conj): #DETERMINA EL CONJUNTO POTENCIA DE UN CONJUNTO
     power_list = reduce(lambda P, x: P + [subset | {x} for subset in P], conj, [set()])
 
     return power_list
