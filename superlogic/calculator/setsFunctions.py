@@ -1,3 +1,4 @@
+from cgi import print_form
 import random
 from functools import reduce
 
@@ -47,14 +48,14 @@ def menu(set1,set2,option):
 
     elif option == 6: #COMPLEMENTO DE A 
         operation = f"Complemento de {set(set1)}[{len(set1)}]"
-        response = f"{set(complement(set1))}[{len(complement(set1))}]" 
+        response = f"{set(complement(set1))}[{len(complement(set1))-1}]" 
 
         context = {'operation':operation,'result':response}
         return context
 
     elif option == 7: # COMPLEMENTO DE B 
         operation = f"Complemento de {set(set2)}[{len(set2)}]"
-        response = f"{set(complement(set2))}[{len(complement(set2))}]" 
+        response = f"{set(complement(set2))}[{len(complement(set2))-1}]" 
 
         context = {'operation':operation,'result':response}
         return context
@@ -104,7 +105,7 @@ def menu(set1,set2,option):
         result[0] = "{∅}"
         response = f"{result}[{len(result)}]"
 
-        context = {'operation':operation,'result':set(response)}
+        context = {'operation':operation,'result':response}
         return context
 
     elif option == 14: #CONTENCIÓN DE A EN B
@@ -146,7 +147,7 @@ def auto_Generate():
         while rep == 0:
             rand = random.randint(1, 99)
             if rand not in conj_A:
-                conj_A.append(rand)
+                conj_A.append(str(rand))
                 rep = 1
 
     for i in range(size_B):
@@ -154,7 +155,7 @@ def auto_Generate():
         while rep == 0:
             rand = random.randint(1, 99)
             if rand not in conj_B:
-                conj_B.append(rand)
+                conj_B.append(str(rand))
                 rep = 1
     return conj_A, conj_B
 
@@ -223,6 +224,7 @@ def complement(conj):
     universe = []
     for element in range(100):
         universe.append(str(element+1))
+    universe.append("")
 
     comp = universe.copy()
 

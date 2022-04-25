@@ -2,45 +2,49 @@
 {% load static %}        
 {% block content %}
 
-<section class="data-input">
-    <h2>Ingrese sus elementos separados por comas</h2>
-    <form action="" method="get">
-        <input  class="set1" type="text" name="text">
-        <input  class="set2" type="text" name="text2"> 
-        <select name="select1">
-            <option value="1">INGRESADO </option>
-            <option value="2" >RANDOM</option>
-        </select>
-
-        <select name="select2">
-            <option value="1">1. Interseccion A∩B </option>
-            <option value="2" >2. Union A∪B</option>
-            <option value="3">3. Diferencia A-B</option>
-            <option value="4">4. Diferencia B-A</option>
-            <option value="5">5. Diferencia Simetrica</option>
-            <option value="6">6. Complemento de A</option>
-            <option value="7">7. Complemento de B</option>
-            <option value="8">8. Producto Cartesiano de AxB</option>
-            <option value="9">9. Producto Cartesiano de BxA</option>
-            <option value="10">10. Producto Cartesiano de AxA</option>
-            <option value="11">11. Producto Cartesiano de BxB</option>
-            <option value="12">12. Conjunto potencia de A</option>
-            <option value="13">13. Conjunto potencia de B</option>
-            <option value="14">14. Contencion de A ⊆ B</option>
-            <option value="15">15. Contencion de B ⊆ A </option>
-        </select>
-
-        <button class="sendto" type="submit">Enviar</button>
-        <button class="reset" type="reset">Resetear</button>
-
-    </form>
-</section>
-
-<section class="results">
-
-    <h1>{{ operation }}</h1>
-    <h1>{{ result }}</h1>
-
+<section class="gen-sets6">
+    <section class="sets-data">
+        <section class="data-input">
+            <h2 class="main-instruction">Ingrese sus elementos separados por comas</h2> <br>
+            <form action="" method="get">
+                <input  class="set1" type="text" name="text"><br><br>
+                <input  class="set2" type="text" name="text2"><br><br>
+                <select name="select1">
+                    <option value="1">INGRESADO </option>
+                    <option value="2" >RANDOM</option>
+                </select> 
+        
+                <select name="select2">
+                    <option value="1">1. Interseccion A∩B </option>
+                    <option value="2" >2. Union A∪B</option>
+                    <option value="3">3. Diferencia A-B</option>
+                    <option value="4">4. Diferencia B-A</option>
+                    <option value="5">5. Diferencia Simetrica</option>
+                    <option value="6">6. Complemento de A</option>
+                    <option value="7">7. Complemento de B</option>
+                    <option value="8">8. Producto Cartesiano de AxB</option>
+                    <option value="9">9. Producto Cartesiano de BxA</option>
+                    <option value="10">10. Producto Cartesiano de AxA</option>
+                    <option value="11">11. Producto Cartesiano de BxB</option>
+                    <option value="12">12. Conjunto potencia de A</option>
+                    <option value="13">13. Conjunto potencia de B</option>
+                    <option value="14">14. Contencion de A ⊆ B</option>
+                    <option value="15">15. Contencion de B ⊆ A </option>
+                </select> <br><br>
+        
+                <button class="sendto" type="submit">Generar</button>
+                <button class="reset" type="reset">Resetear</button>
+        
+            </form>
+        </section>
+        
+        <section class="results">
+        
+            <h1 class="main-operation">{{ operation }}</h1> <br>
+            <h1 class="final-result">{{ result }}</h1>
+        
+        </section>
+    </section>
 </section>
 
 

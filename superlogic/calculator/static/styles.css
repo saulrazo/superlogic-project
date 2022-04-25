@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@700&family=Work+Sans:wght@500&display=swap');
+
+:root{
+    --index:#CFC0F3;
+    --cal1:#DA4167;
+    --cal2:#7CC6FE;
+    --cal2-sec:#F4FAFF;
+    --button-submit:#357DED;
+    --text:#363C45;
+}
+
+*{
+    font-family: 'Work Sans', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+.index-data{
+    height: 710px;
+    background-color: var(--index);
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1,1fr);
+    
+}
+
+.main-img{
+    margin-top: 2%;
+}
+
+.main-data{
+    margin-top: 15%;
+}
+
+.main-data p{
+    font-family: 'Amaranth', sans-serif;
+    font-size: 80px;
+}
+
+.main-data button{
+    font-family: 'Amaranth', sans-serif;
+    border:none;
+    border-radius: 10px;
+    font-size: 40px;
+    width: 350px;
+    margin-left:10%;
+    margin-top: 5%;
+}
+
+.main-data button:hover{
+    background-color: var(--cal1);
+    transition-delay: .1s;
+    cursor: pointer;
+
+}
+
+
+/************SETS************/
+
+.gen-sets{
+    background-color: var(--cal2);
+}
+
+.sets-data{
+    color: var(--text);
+    height: 720px;
+    padding-top: 30px;
+    text-align: center;
+    background-color: var(--cal2);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1,1fr); 
+}
+
+.data-input{
+    height: 650px;
+    width: 95%;
+    margin-top: 30px;
+    margin-left: 15px;
+    
+}
+
+.data-input .main-instruction{
+    color: var(--cal2-sec);
+    font-weight: 900;
+}
+
+.data-input input{
+    width: 80%;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+}
+.data-input select{
+    border: none;
+    border-radius: 7px;
+}
+
+.data-input button{
+    border: none;
+    border-radius: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+.data-input .sendto{ background-color: var(--button-submit); }
+.data-input .sendto:hover{background-color: var(--cal2-sec); color: var(--button-submit);}
+
+.data-input .reset{ background-color: var(--cal1);}
+.data-input .reset:hover{background-color: var(--index); color: var(--cal2-sec);}
+
+.results{
+    border-radius: 15px;
+    padding: 20px;
+    width: 95%;
+    height: 650px;
+    overflow-y: auto;
+    background-color: var(--cal2-sec);
+}
+
+.results .final-result{
+    color: var(--button-submit);
+}
